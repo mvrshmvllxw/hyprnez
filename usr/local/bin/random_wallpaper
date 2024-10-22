@@ -1,0 +1,10 @@
+#!/bin/bash
+
+WALLPAPER_DIR=~/Pictures/Wallpapers
+images=($(ls -1 "$WALLPAPER_DIR"/*.jpg "$WALLPAPER_DIR"/*.jpeg "$WALLPAPER_DIR"/*.png 2>/dev/null))
+if [ ${#images[@]} -eq 0 ]; then
+    echo "No images found in $WALLPAPER_DIR"
+    exit 1
+fi
+selected_image="${images[RANDOM % ${#images[@]}]}"
+swww img "$selected_image"

@@ -1,0 +1,52 @@
+window {
+    font-family: CaskaydiaCove Nerd Font, monospace;
+    font-size: 24px;
+    color: #b2bad5; 
+    background-color: rgba(17, 17, 27, 0.573);
+    transition-property: background-color;
+    transition-duration: 0.7s;
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    border: solid 2px rgba(32, 32, 48, 0.364);
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgba(32, 32, 48, 0.364);
+    margin: 5px;
+    transition-property: border;
+    transition-duration: 0.4s;
+
+}
+
+button:focus {
+    border: solid 2px rgba(32, 32, 48, 0.364);
+    background-color: rgba(32, 32, 48, 0.364);
+}
+
+button:hover {
+    border: solid 2px rgba(255, 255, 255, 0.79);
+    background-color: rgba(32, 32, 48, 0.364);
+}
+
+
+
+#lock {
+    background-image: image(url("./assets/lock.png"), url("./assets/lock.png"));
+}
+#logout {
+    background-image: image(url("./assets/logout.png"), url("./assets/logout.png"));
+}
+#shutdown {
+    background-image: image(url("./assets/power.png"), url("./assets/power.png"));
+}
+#suspend {
+    background-image: image(url("./assets/sleep.png"), url("./assets/sleep.png"));
+}
+#hibernate {
+    background-image: image(url("./assets/sleep.png"), url("./assets/sleep.png"));
+}
+#reboot {
+    background-image: image(url("./assets/restart.png"), url("./assets/restart.png"));
+}

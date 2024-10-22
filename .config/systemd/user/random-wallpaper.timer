@@ -1,0 +1,7 @@
+[Unit]
+Description=Run Random Wallpaper Changer every 5 minutes
+[Timer]
+OnBootSec=5s
+OnUnitActiveSec=5s
+[Install]
+WantedBy=timers.target

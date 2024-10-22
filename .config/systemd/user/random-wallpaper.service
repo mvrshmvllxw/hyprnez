@@ -1,0 +1,5 @@
+[Unit]
+Description=Random Wallpaper Changer
+[Service]
+ExecStart=/usr/local/bin/random_wallpaper
+Type=oneshot

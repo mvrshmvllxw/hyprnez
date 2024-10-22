@@ -1,0 +1,41 @@
+{
+    "label" : "lock",
+    "action" : "hyprctl switchxkblayout all 0 && sleep 0.5 && loginctl lock-session",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+
+{
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit 0",
+    "text" : "Logout",
+    "keybind" : "g"
+}
+
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+
+{
+    "label" : "suspend",
+    "action" : "hyprctl switchxkblayout all 0 && sleep 0.5 && loginctl lock-session && systemctl suspend-then-hibernate",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
+
+{
+    "label" : "hibernate",
+    "action" : "hyprctl switchxkblayout all 0 && sleep 0.5 && loginctl lock-session && systemctl hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
+
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
