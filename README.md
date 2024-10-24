@@ -9,6 +9,7 @@
 ![screenshot](/src/3.png)
 ![screenshot](/src/4.png)
 ![screenshot](/src/5.png)
+![screenshot](/src/6.png)
 
 # Installation on a newly installed Arch with Hyprland
 
@@ -75,9 +76,9 @@ To set default wallpaper (stored in ~/Pictures/Wallpapers):
 
 > hyprnez wallpaper
 
-To cgange monitor settings:
+To change monitor settings:
 
-> hypnez utils
+> hyprnez utils
 
 To get all available commands:
 
