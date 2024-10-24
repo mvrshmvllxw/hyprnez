@@ -3,116 +3,64 @@
 
 if [[ "$1" == "keys" ]]; then
     echo -e "\e[35m Default Keybinds:\e[0m"
-    echo "Win+Q             # close window                  Win+left_mouse    # move window"
-    echo "Win+W             # toggle window fullscreen      Win+right_mouse   # resize window"
-    echo "Win+E             # toggle window floating        Win+T             # toggle split"
-    echo "Win+1,+2,+3..     # switch desktop                Win+Shift+1..     # move window to desktop"
-    echo "Win+mouse_wheel   # switch desktop                Win+R             # resize but not float"
-    echo "Win+A             # apps menu                     Win+Esc           # logout menu"
-    echo "Win+Backspace     # lock pc                       CapsLock          # change keyboard layout"
-    echo "Printscreen       # screenshot to clipboard       Alt+Prinscreen    # screenshot saved to Pictures/Screenshots"
-    echo "Win+Printscreen   # area screenshot to clipboard  lCtrl+Esc         # toggle waybar"
-    echo -e \n
-    echo "Win+Z             # terminal (Kitty)              Win+S             # files (Dolphin)"
-    echo "Win+X             # VS Code                       Win+D             # browser (Firefox)"
-    echo "Win+X             # VS Code                       Win+F             # Telegram"
 
+    # Window Management
+    echo -e "\e[34m\nWindow Management:\e[0m"
+    echo -e "Win+Q            \t# close window"
+    echo -e "Win+W            \t# toggle window fullscreen"
+    echo -e "Win+E            \t# toggle window floating"
+    echo -e "Win+R            \t# resize but not float"
+    echo -e "Win+T            \t# toggle split"
+    echo -e "Win+left_mouse   \t# move window"
+    echo -e "Win+right_mouse  \t# resize window"
 
-elif [[ "$1" == "nezuko" ]]; then
-    swww img ~/Pictures/Wallpapers/nezuko.jpg
+    # Desktop Management
+    echo -e "\e[32m\nDesktop Management:\e[0m"
+    echo -e "Win+1, +2, +3... \t# switch desktop"
+    echo -e "Win+Shift+1...   \t# move window to desktop"
+    echo -e "Win+mouse_wheel  \t# switch desktop"
 
-elif [[ "$1" == "monitor" ]]; then
-    hyprctl monitors all
+    # System
+    echo -e "\e[36m\nSystem:\e[0m"
+    echo -e "Win+A            \t# apps menu"
+    echo -e "Win+Esc          \t# logout menu"
+    echo -e "Win+Backspace    \t# lock pc"
+    echo -e "CapsLock         \t# change keyboard layout"
+    echo -e "lCtrl+Esc        \t# toggle waybar"
 
+    # Screenshots
+    echo -e "\e[33m\nScreenshots:\e[0m"
+    echo -e "Printscreen      \t# screenshot to clipboard"
+    echo -e "Alt+Prinscreen   \t# screenshot saved to Pictures/Screenshots"
+    echo -e "Win+Printscreen  \t# area screenshot to clipboard"
 
-elif [[ "$1" == "config" && "$2" == "keys" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hypr/keybinds.conf
-    else
-        nano ~/.config/hypr/keybinds.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "monitor" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hypr/monitor.conf
-    else
-        nano ~/.config/hypr/monitor.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "windows" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hypr/windows.conf
-    else
-        nano ~/.config/hypr/windows.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "input" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hypr/input.conf
-    else
-        nano ~/.config/hypr/input.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "autostart" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hypr/autostart.conf
-    else
-        nano ~/.config/hypr/autostart.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "env" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hypr/env.conf
-    else
-        nano ~/.config/hypr/env.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "animation" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/animation.conf
-    else
-        nano ~/.config/animation.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "look" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/look.conf
-    else
-        nano ~/.config/look.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "hypr" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hyprland.conf
-    else
-        nano ~/.config/hyprland.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "idle" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hypridle.conf
-    else
-        nano ~/.config/hypridle.conf
-    fi
-elif [[ "$1" == "config" && "$2" == "lock" ]]; then
-    if command -v code >/dev/null 2>&1; then
-        code ~/.config/hyprock.conf
-    else
-        nano ~/.config/hyprock.conf
-    fi
-
-
+    # Applications
+    echo -e "\e[31m\nApplications:\e[0m"
+    echo -e "Win+Z            \t# terminal (Kitty)"
+    echo -e "Win+S            \t# files (Dolphin)"
+    echo -e "Win+X            \t# VS Code"
+    echo -e "Win+D            \t# browser (Firefox)"
+    echo -e "Win+F            \t# Telegram"
 
 
 elif [[ "$1" == "icons" ]]; then
-    echo "hoose color:"
-    echo "1) black"
-    echo "2) blue"
-    echo "3) brown"
-    echo "4) dracula"
-    echo "5) green"
-    echo "6) grey"
-    echo "7) manjaro"
-    echo "8) nord"
-    echo "9) orange"
-    echo "10) pink"
-    echo "11) purple"
-    echo "12) red"
-    echo "13) standard"
-    echo "14) ubuntu"
-    echo "15) yellow"
-    read -p "Еnter color number: " color_number
+    echo "Choose color:"
+    echo -e "1) \e[30mblack\e[0m"
+    echo -e "2) \e[34mblue\e[0m"
+    echo -e "3) \e[33mbrown\e[0m"  # Note: ANSI doesn't have brown, using yellow as closest
+    echo -e "4) dracula"          # Dracula theme color may vary, keeping it default
+    echo -e "5) \e[32mgreen\e[0m"
+    echo -e "6) \e[90mgrey\e[0m"
+    echo -e "7) manjaro"          # Manjaro theme color may vary, keeping it default
+    echo -e "8) nord"             # Nord theme color may vary, keeping it default
+    echo -e "9) \e[33morange\e[0m"
+    echo -e "10) \e[35mpink\e[0m"
+    echo -e "11) \e[35mpurple\e[0m"
+    echo -e "12) \e[31mred\e[0m"
+    echo -e "13) standard"        # Standard theme may vary, keeping it default
+    echo -e "14) ubuntu"          # Ubuntu theme color may vary, keeping it default
+    echo -e "15) \e[33myellow\e[0m"
+    read -p "Enter color number: " color_number
     case $color_number in
         1) color="black" ;;
         2) color="blue" ;;
@@ -135,89 +83,172 @@ elif [[ "$1" == "icons" ]]; then
     gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$color"
 
 
-elif [[ "$1" == "reload" && "$2" == "hypr" ]]; then
-    hyprctl reload
-elif [[ "$1" == "reload" && "$2" == "mako" ]]; then
-    makoctl reload
-elif [[ "$1" == "layers" ]]; then
-    hyprctl clients
-elif [[ "$1" == "notify" ]]; then
-    notify-send "Title1" "NOW"
+elif [[ "$1" == "config" && -z "$2" ]]; then
+    config_files=(
+        "keybinds.conf:Keybindings"
+        "monitor.conf:Monitor"
+        "windows.conf:Windows"
+        "input.conf:Input"
+        "autostart.conf:Autostart"
+        "env.conf:Environment"
+        "animation.conf:Animations"
+        "look.conf:Appearance"
+        "hyprland.conf:Hyprland"
+        "hypridle.conf:Idle"
+        "hyprlock.conf:Lock"
+    )
+    echo "Select file number to open:"
+    for i in "${!config_files[@]}"; do
+        IFS=':' read -r file_name display_name <<< "${config_files[$i]}"
+        echo "$((i + 1)). $display_name"
+    done
+    read -p "Enter file number: " file_number
+    if [[ "$file_number" =~ ^[0-9]+$ ]] && ((file_number > 0 && file_number <= ${#config_files[@]})); then
+        IFS=':' read -r selected_file _ <<< "${config_files[$((file_number - 1))]}"
+        if command -v code >/dev/null 2>&1; then
+            code "$HOME/.config/hypr/$selected_file"
+        else
+            nano "$HOME/.config/hypr/$selected_file"
+        fi
+    else
+        echo "Invalid input. Please enter a valid number."
+    fi
 
 
-
+elif [[ "$1" == "utils" ]]; then
+    echo "Select an option to execute:"
+    echo "1. GUI for configuring monitors (Launch nwg-displays)"
+    echo "2. Reload Hyprland"
+    echo "3. Reload Mako"
+    echo "4. Show layers (hyprctl clients)"
+    echo "5. Send test notification"
+    read -p "Enter the option number: " option_number
+    case $option_number in
+        1)
+            if command -v nwg-displays >/dev/null 2>&1; then
+                nwg-displays
+            else
+                echo "nwg-displays not found. Please install it first."
+            fi
+            ;;
+        2)
+            if command -v hyprctl >/dev/null 2>&1; then
+                hyprctl reload
+            else
+                echo "hyprctl not found. Please ensure Hyprland is installed."
+            fi
+            ;;
+        3)
+            if command -v makoctl >/dev/null 2>&1; then
+                makoctl reload
+            else
+                echo "makoctl not found. Please ensure Mako is installed."
+            fi
+            ;;
+        4)
+            if command -v hyprctl >/dev/null 2>&1; then
+                hyprctl clients
+            else
+                echo "hyprctl not found. Please ensure Hyprland is installed."
+            fi
+            ;;
+        5)
+            if command -v notify-send >/dev/null 2>&1; then
+                notify-send "Title1" "NOW"
+            else
+                echo "notify-send not found. Please ensure a notification daemon is installed."
+            fi
+            ;;
+        *)
+            echo "Invalid option. Please enter a valid number."
+            ;;
+    esac
 
 
 
 
 elif [[ "$1" == "wallpaper" ]]; then
-    WALLPAPER_DIR=~/Pictures/Wallpapers
-    echo "Searching for images in: $WALLPAPER_DIR"
-    cd "$WALLPAPER_DIR" || { echo "Directory not found: $WALLPAPER_DIR"; exit 1; }
-    images=($(ls -1 *.jpg *.jpeg *.png 2>/dev/null))
-    if [ ${#images[@]} -eq 0 ]; then
-        echo "No images found in $WALLPAPER_DIR"
-        exit 1
-    fi
-    echo "Available images:"
-    for i in "${!images[@]}"; do
-        echo "$((i+1)). ${images[$i]}"
-    done
-    echo -n "Enter the number of the image to set it as wallpaper: "
-    read choice
-    if ! [[ "$choice" =~ ^[0-9]+$ ]] || [ "$choice" -le 0 ] || [ "$choice" -gt ${#images[@]} ]; then
-        echo "Invalid input. Please enter a number between 1 and ${#images[@]}."
-        exit 1
-    fi
-    selected_image="${images[$((choice-1))]}"
-    swww img "$WALLPAPER_DIR/$selected_image"
-    echo "Wallpaper set to: $WALLPAPER_DIR/$selected_image"
+    echo "Select an option for wallpaper management:"
+    echo "1. Set default wallpaper"
+    echo "2. Start default live wallpaper"
+    echo "3. Stop live wallpaper"
+    echo "4. Choose wallpaper"
+    echo "5. Start slideshow"
+    echo "6. Stop slideshow"
+    echo "7. Next slideshow wallpaper"
+    read -p "Enter the option number: " option_number
 
-
-
-
-elif [[ "$1" == "slideshow" && "$2" == "enable" ]]; then
-    systemctl --user enable random-wallpaper.timer
-    systemctl --user start random-wallpaper.timer
-
-
-elif [[ "$1" == "slideshow" && "$2" == "disable" ]]; then
-    systemctl --user disable random-wallpaper.timer
-    systemctl --user stop random-wallpaper.timer
-
-
-elif [[ "$1" == "slideshow" && "$2" == "next" ]]; then
-    exec /usr/local/bin/random_wallpaper
+    case $option_number in
+        1)
+            if command -v swww >/dev/null 2>&1; then
+                swww img ~/Pictures/Wallpapers/nezuko.jpg
+            else
+                echo "swww not found. Please install it first."
+            fi
+            ;;
+        2)
+            if command -v mpvpaper >/dev/null 2>&1; then
+                mpvpaper -o "no-audio --loop-playlist" '*' ~/Pictures/Live/nezuko_live.mp4 &
+                echo $! > /tmp/mpvpaper_pid
+            else
+                echo "mpvpaper not found. Please install it first."
+            fi
+            ;;
+        3)
+            if [[ -f /tmp/mpvpaper_pid ]]; then
+                kill $(cat /tmp/mpvpaper_pid) && rm /tmp/mpvpaper_pid
+                echo "Live wallpaper stopped."
+            else
+                echo "No live wallpaper process found."
+            fi
+            ;;
+        4)
+            WALLPAPER_DIR=~/Pictures/Wallpapers
+            echo "Searching for images in: $WALLPAPER_DIR"
+            cd "$WALLPAPER_DIR" || { echo "Directory not found: $WALLPAPER_DIR"; exit 1; }
+            images=($(ls -1 *.jpg *.jpeg *.png 2>/dev/null))
+            if [ ${#images[@]} -eq 0 ]; then
+                echo "No images found in $WALLPAPER_DIR"
+                exit 1
+            fi
+            echo "Available images:"
+            for i in "${!images[@]}"; do
+                echo "$((i+1)). ${images[$i]}"
+            done
+            echo -n "Enter the number of the image to set it as wallpaper: "
+            read choice
+            if ! [[ "$choice" =~ ^[0-9]+$ ]] || [ "$choice" -le 0 ] || [ "$choice" -gt ${#images[@]} ]; then
+                echo "Invalid input. Please enter a number between 1 and ${#images[@]}."
+                exit 1
+            fi
+            selected_image="${images[$((choice-1))]}"
+            swww img "$WALLPAPER_DIR/$selected_image"
+            echo "Wallpaper set to: $WALLPAPER_DIR/$selected_image"
+            ;;
+        5)
+            systemctl --user enable random-wallpaper.timer
+            systemctl --user start random-wallpaper.timer
+            ;;
+        6)
+            systemctl --user disable random-wallpaper.timer
+            systemctl --user stop random-wallpaper.timer
+            ;;
+        7)
+            exec /usr/local/bin/random_wallpaper
+            systemctl --user restart random-wallpaper.timer
+            ;;
+        *)
+            echo "Invalid option. Please enter a valid number."
+            ;;
+    esac
 
 
 else
-    echo -e "\n"
-    echo -e "\e[35mAvailable commands:\e[0m"
-    echo -e "\n"
-    echo "keys                             # show default keybinds"
-    echo "nezuko                           # set default wallpaper"
-    echo "monitor                          # show my monitors"
-    echo -e "\n"
-    echo "config keys                      # edit keybinds"
-    echo "config monitor                   # edit monitor settings"
-    echo "config input                     # keyboard and layouts"
-    echo "config windows                   # windows behavior"
-    echo "config autostart                 # autostart"
-    echo "config env                       # env"
-    echo "config animation                 # animation"
-    echo "config appearance                # env"
-    echo "config lock                      # lockscreen"
-    echo "config idle                      # lock timers"
-    echo "config hypr                      # other settings"
-    echo -e "\n"
-    echo "icons                            # change icons"
-    echo "reload hypr                      # reload hyprland configs"
-    echo "reload mako                      # reload mako config"
-    echo "layers                           # show current layers"
-    echo "notify                           # send test notification"
-    echo -e "\n"
-    echo "wallpaper                        # set wallpaper from Pictures/Wallpapers"
-    echo "slideshow enable                 # set random wallpaper every 5 min"
-    echo "slideshow disable                # turn off slideshow"
-    echo "slideshow next                   # next wallpaper"
+    echo -e "\033[1;34mAvailable commands:\033[0m"
+    echo -e "\t\033[1;32mhyprnez keys\033[0m      \t# show default keybinds"
+    echo -e "\t\033[1;32mhyprnez config\033[0m    \t# edit configs"
+    echo -e "\t\033[1;32mhyprnez wallpaper\033[0m \t# manage wallpaper"
+    echo -e "\t\033[1;32mhyprnez utils\033[0m     \t# various utilities"
+    echo -e "\t\033[1;32mhyprnez icons\033[0m     \t# change icons"
 fi
+

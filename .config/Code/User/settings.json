@@ -1,0 +1,5 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "Omni",
+    "workbench.iconTheme": "material-icon-theme"
+}
