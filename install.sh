@@ -156,7 +156,8 @@ nwg-shell tela-circle-icon-theme-all bibata-cursor-theme tofi wlogout \
 pipewire-audio pipewire-jack gst-plugin-pipewire polkit-gnome \
 xdg-desktop-portal-hyprland pacman-contrib python-pyamdgpuinfo parallel jq \
 imagemagick qt5-imageformats ffmpegthumbs kde-cli-tools kservice5 libnotify \
-xdg-utils wayshot archlinux-xdg-menu mpvpaper gimp drawing fish kitty lsd starship
+xdg-utils wayshot archlinux-xdg-menu mpvpaper gimp drawing fish kitty lsd starship \
+krabby
 paru -S --needed --noconfirm mpv imv code code-features code-marketplace firefox telegram-desktop
 echo "::: Packages installation complete."
 
@@ -165,7 +166,7 @@ echo "::: Packages installation complete."
 echo "::: Installing fonts..."
 sudo pacman -S --noconfirm --needed otf-font-awesome ttf-firacode-nerd ttf-cascadia-code ttf-cascadia-code-nerd \
 ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-iosevka-nerd \
-ttf-iosevkaterm-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols-mono noto-fonts-emoji awesome-terminal-fonts
+ttf-iosevkaterm-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols-mono noto-fonts-emoji awesome-terminal-fonts noto-fonts-cjk noto-fonts
 echo "::: Installation completed."
 
 ###################
@@ -174,7 +175,7 @@ echo "::: Applying default apps..."
 # Fix mime bugs
 XDG_MENU_PREFIX=arch- kbuildsycoca6
 # Video
-wayshoxdg-mime default mpv.desktop video/mp4
+xdg-mime default mpv.desktop video/mp4
 xdg-mime default mpv.desktop video/x-matroska
 xdg-mime default mpv.desktop video/webm
 # Pics
