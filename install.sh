@@ -160,8 +160,8 @@ if [ "$user_input" = "y" ] || [ "$user_input" = "Y" ]; then
         chaotic_error=1
     fi
     if [ $chaotic_error -ne 1 ]; then
-        if ! grep -q "^$$chaotic-aur$$" /etc/pacman.conf; then
-            echo "\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
+        if ! grep -q 'chaotic-mirrorlist' /etc/pacman.conf; then
+            echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
             echo "::: The section [chaotic-aur] added in /etc/pacman.conf"
         else
             echo "::: The section [chaotic-aur] already exists in /etc/pacman.conf"
@@ -174,8 +174,6 @@ if [ "$user_input" = "y" ] || [ "$user_input" = "Y" ]; then
 else
     echo "::: Installation Chaotic Aur has been canceled."
 fi
-
-
 
 ###################
 
@@ -209,6 +207,9 @@ paru -S --needed --noconfirm kde-cli-tools kservice5 pacman-contrib python-pyamd
 # Images
 paru -S --needed --noconfirm drawing imagemagick qt5-imageformats ffmpegthumbs
 echo "::: Packages installation complete."
+# Python
+paru -S --needed --noconfirm python python-pip tk tcl python-pyqt6
+
 
 ###################
 
@@ -307,7 +308,6 @@ if [[ "$bluetooth" == "y" || "$bluetooth" == "Y" ]]; then
 else
     echo "::: Cancelled by user."
 fi
-
 
 ###################
 

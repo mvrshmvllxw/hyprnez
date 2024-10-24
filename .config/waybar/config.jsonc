@@ -19,10 +19,10 @@
     "modules-right": [
         "tray",
         "hyprland/language",
-        "battery",
-        "backlight",
         "pulseaudio#microphone",
         "pulseaudio",
+        "backlight",
+        "battery",
         "custom/wlogout"
     ],
 
@@ -33,12 +33,12 @@
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
-        "on-click": "activate"
-        //"format": "{icon}",
+        "on-click": "activate",
+        //"format": "{icon}"
     },
 
     "tray": {
-        "icon-size": 13,
+        "icon-size": 16,
         "spacing": 10
     },
 
@@ -46,19 +46,21 @@
         "format": "{:%I:%M:%S %p}",
         "interval": 1,
         "rotate": 0,
-        "tooltip-format": "<tt>{calendar}</tt>",
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 3,
-            "on-scroll": 1,
-            "on-click-right": "mode",
-            "format": {
-                "months": "<span color='#a6adc8'><b>{}</b></span>",
-                "weekdays": "<span color='#a6adc8'><b>{}</b></span>",
-                "today": "<span color='#a6adc8'><b>{}</b></span>",
-                "days": "<span color='#555869'><b>{}</b></span>"
-            }
-        }
+        "tooltip": false
+        // "tooltip-format": "<tt>{calendar}</tt>",
+        // "tooltip": false,
+        // "calendar": {
+        //     "mode": "month",
+        //     "mode-mon-col": 3,
+        //     "on-scroll": 1,
+        //     "on-click-right": "mode",
+        //     "format": {
+        //         "months": "<span color='#a6adc8'><b>{}</b></span>",
+        //         "weekdays": "<span color='#a6adc8'><b>{}</b></span>",
+        //         "today": "<span color='#a6adc8'><b>{}</b></span>",
+        //         "days": "<span color='#555869'><b>{}</b></span>"
+        //     }
+        // }
     },
 
     "backlight": {
@@ -79,7 +81,7 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
+        // "format-alt": "{time} {icon}",
         "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
@@ -119,26 +121,28 @@
             "h": 60, // high
             "m": 30 // medium
         },
+        "tooltip": false,
         "interval": 10,
         "format": "󰾆 {used}GB",
         "format-m": "󰾅 {used}GB",
         "format-h": "󰓅 {used}GB",
         "format-c": " {used}GB",
-        "format-alt": "󰾆 {percentage}%",
-        "max-length": 10,
-        "tooltip": true,
-        "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
+        // "format-alt": "󰾆 {percentage}%",
+        "max-length": 10
+        // "tooltip": false,
+        // "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
     },
 
     "cpu": {
         "interval": 10,
         "format": "󰍛 {usage}%",
-        "format-alt": "{icon0}{icon1}{icon2}{icon3}",
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+        // "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+        "tooltip": false,
+        // "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
     },
 
     "network": {
-        "tooltip": true,
+        "tooltip": false,
         "format-wifi": "  {essid}",
         "format-ethernet": "󰈀 ",
         "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
@@ -151,18 +155,45 @@
 
     "hyprland/language": {
 		"format": "<span color='#cdd6f4'>󰌏 {}</span>",
-		"format-en": "EN",
-		"format-ru": "RU"
+        "format-en": "EN",
+        "format-ru": "RU",
+        "format-es": "ES",
+        "format-fr": "FR",
+        "format-de": "DE",
+        "format-it": "IT",
+        "format-pt": "PT",
+        "format-nl": "NL",
+        "format-pl": "PL",
+        "format-tr": "TR",
+        "format-sv": "SV",
+        "format-da": "DA",
+        "format-fi": "FI",
+        "format-no": "NO",
+        "format-el": "EL",
+        "format-cs": "CS",
+        "format-hu": "HU",
+        "format-ro": "RO",
+        "format-bg": "BG",
+        "format-uk": "UK",
+        "format-sk": "SK",
+        "format-sr": "SR", 
+        "format-hr": "HR",
+        "format-sl": "SL",
+        "format-lt": "LT",
+        "format-lv": "LV",
+        "format-et": "ET"
 	},
 
     "custom/launcher": {
         "format": "",
-        "on-click": "tofi-drun -c ~/.config/tofi/configA --drun-launch=true"
+        "on-click": "tofi-drun -c ~/.config/tofi/configA --drun-launch=true",
+        "tooltip": false
     },
 
     "custom/wlogout": {
         "format": "⏻",
-        "on-click": "wlogout"
+        "on-click": "wlogout",
+        "tooltip": false
     },
 
 }
