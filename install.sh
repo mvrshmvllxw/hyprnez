@@ -140,6 +140,45 @@ fi
 
 ###################
 
+echo -e "\e[35m::: Do you want to add Chaotic Aur? Skip this step if you get an error with Chaotic Aur.\e[0m (y/n): \c"
+read user_input
+if [ "$user_input" = "y" ] || [ "$user_input" = "Y" ]; then
+    chaotic_error=0
+    echo "Configuring Chaotic AUR..."
+    sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+    sudo pacman-key --lsign-key 3056513887B78AEB
+    if ! sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'; then
+        echo "(!) Error: Failed to download or install chaotic-keyring.pkg.tar.zst."
+        echo "(!) Please check your internet connection or try again later."
+        echo "(!) URL: https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst"
+        chaotic_error=1
+    fi
+    if ! sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'; then
+        echo "(!) Error: Failed to download or install chaotic-mirrorlist.pkg.tar.zst."
+        echo "(!) Please check your internet connection or try again later."
+        echo "(!) URL: https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
+        chaotic_error=1
+    fi
+    if [ $chaotic_error -ne 1 ]; then
+        if ! grep -q "^$$chaotic-aur$$" /etc/pacman.conf; then
+            echo "\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
+            echo "::: The section [chaotic-aur] added in /etc/pacman.conf"
+        else
+            echo "::: The section [chaotic-aur] already exists in /etc/pacman.conf"
+        fi
+        echo "::: Chaotic AUR has been configured successfully."
+    else
+        echo "::: There was an error earlier, so the configuration was not modified."
+        echo "::: Chaotic AUR has not been configured. See errors above."
+    fi
+else
+    echo "::: Installation Chaotic Aur has been canceled."
+fi
+
+
+
+###################
+
 echo "::: Installing dependencies.with paru..."
 if ! command -v paru &> /dev/null; then
     echo -e "\e[35m(!) Paru is not installed. Please install paru first.\e[0m"
@@ -158,7 +197,7 @@ libxrender pixman cairo pango libxkbcommon xcb-util-wm fmt spdlog gtkmm3 libdbus
 sndio gtk-layer-shell scdoc qt5-wayland qt6-wayland qt5ct qt6ct kconfig kconfig polkit polkit-kde-agent polkit-gnome \
 libnotify xdg-utils
 # Theming
-paru -S --needed --noconfirm papirus-icon-theme tela-circle-icon-theme-all bibata-cursor-theme3 kvantum kvantum-qt5
+paru -S --needed --noconfirm papirus-icon-theme tela-circle-icon-theme-all bibata-cursor-theme kvantum kvantum-qt5
 # Apps and utils
 paru -S --needed --noconfirm mako network-manager-applet bluez bluez-utils blueman brightnessctl udiskie xdg-desktop-portal-hyprland \
 xdg-desktop-portal-gtk nautilus dolphin gnome-text-editor waybar swww nwg-shell tofi wlogout wayshot archlinux-xdg-menu \
@@ -168,7 +207,7 @@ paru -S --needed --noconfirm mpv imv code code-features code-marketplace firefox
 # System utils
 paru -S --needed --noconfirm kde-cli-tools kservice5 pacman-contrib python-pyamdgpuinfo xorg-xinput seatd 
 # Images
-paru -S --needed --noconfirm imp drawing imagemagick qt5-imageformats ffmpegthumbs
+paru -S --needed --noconfirm drawing imagemagick qt5-imageformats ffmpegthumbs
 echo "::: Packages installation complete."
 
 ###################
@@ -232,57 +271,32 @@ systemctl --user daemon-reload
 
 ###################
 
-echo -e "\e[35m::: Do you want to install Flatpak, Snapcraft and Chaotic Aur? Skip this step if you get an error with Chaotic Aur.\e[0m (y/n): \c"
-read user_input
-if [[ "$user_input" == "y" || "$user_input" == "Y" ]]; then
+echo -e "\e[35m::: Do you want to install Flatpak and Snapcraft?\e[0m (y/n): \c"
+read user_input_store
+if [[ "$user_input_store" == "y" || "$user_input_store" == "Y" ]]; then
     echo "::: Installing Flatpak..."
     sudo pacman -S --needed --noconfirm flatpak
-    echo "::: Installing Snapcraft..."
-    cd ~/Downloads
-    git clone https://aur.archlinux.org/snapd.git
-    cd snapd
-    makepkg -si
-    sudo systemctl enable --now snapd.socket
-    sudo pacman -S --needed --noconfirm apparmor
-    sudo systemctl start apparmor.service
-    sudo systemctl enable --now snapd.apparmor.service
+    if ! command -v snap &> /dev/null; then
+        echo "::: Installing Snapcraft..."
+        cd ~/Downloads
+        git clone https://aur.archlinux.org/snapd.git
+        cd snapd
+        makepkg -si
+        sudo systemctl enable --now snapd.socket
+        sudo pacman -S --needed --noconfirm apparmor
+        sudo systemctl start apparmor.service
+        sudo systemctl enable --now snapd.apparmor.service
+    else
+        echo "::: Snapcraft already installed."
+    fi
     # Return to the original directory
     cd "$original_dir"
-    # Chaotic Aur
-    chaotic_error=0
-    echo "Configuring Chaotic AUR..."
-    sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-    sudo pacman-key --lsign-key 3056513887B78AEB
-    if ! sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'; then
-        echo "(!) Error: Failed to download or install chaotic-keyring.pkg.tar.zst."
-        echo "(!) Please check your internet connection or try again later."
-        echo "(!) URL: https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst"
-        chaotic_error=1
-    fi
-    if ! sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'; then
-        echo "(!) Error: Failed to download or install chaotic-mirrorlist.pkg.tar.zst."
-        echo "(!) Please check your internet connection or try again later."
-        echo "(!) URL: https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst"
-        chaotic_error=1
-    fi
-    if [[ $chaotic_error -ne 1 && ! $(grep -q "^$$chaotic-aur$$$" /etc/pacman.conf) ]]; then
-        echo -e "\n\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf > /dev/null
-        echo "::: The section [chaotic-aur] added in /etc/pacman.conf"
-    else
-        if [[ $chaotic_error -eq 1 ]]; then
-            echo "::: There was an error earlier, so the configuration was not modified."
-        else
-            echo "::: The section [chaotic-aur] already exists in /etc/pacman.conf"
-        fi
-    fi
-    if [[ $chaotic_error -ne 1 ]]; then
-        echo "::: Chaotic AUR has been configured successfully."
-    else
-        echo "::: Chaotic AUR has not been configured. See errors above."
-    fi
+    rm -rf ~/Downloads/snapd
 else
-    echo "::: Installation of Flatpak, Snapcraft and Chaotic Aur has been canceled."
+    echo "::: Installation of Flatpak and Snapcraft has been canceled."
 fi
+
+###################
 
 echo -e "\e[35m::: Do you want to enable Bluetooth service?\e[0m (y/n): \c"
 read bluetooth
@@ -295,6 +309,7 @@ else
 fi
 
 
+###################
 
 echo -e "\e[35m::: Well done.\e[0m"
 echo -e "\e[35m::: Now please type 'reboot'.\e[0m"
