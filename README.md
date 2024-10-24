@@ -1,4 +1,6 @@
-![Logo](/src/logo.jpg)
+<p align="center">
+  <img src="/src/hyprnez.png" alt="Logo" width="200"/>
+</p>
 
 # Screenshots
 
@@ -71,23 +73,24 @@ To show default keybinds:
 
 To set default wallpaper (stored in ~/Pictures/Wallpapers):
 
-> hyprnez nezuko
+> hyprnez wallpaper
 
 To cgange monitor settings:
 
-> hypnez config monitor
+> hypnez utils
 
 To get all available commands:
 
 > hyprnez
 
+To edit configs:
+
+> hyprnez config
+
 # Additional
 
 ### Telegram theme
 theme: https://t.me/addtheme/BChppF8BUJCY9EW9
-
-### VS Code theme
-`rocketseat.theme-omni` and Icon theme: `PKief.material-icon-theme`
 
 ### Firefox theme
 https://addons.mozilla.org/en-US/firefox/addon/nicothin-space/
