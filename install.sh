@@ -61,9 +61,10 @@ fi
 ###################
 
 echo "::: Copying configuration files..."
-cp -rf .config/* ~/.config/
-cp -rf .themes/* ~/.themes/
+sudo cp -rf .config/* ~/.config/
+sudo cp -rf .themes/* ~/.themes/
 sudo cp -rf usr/* /usr/
+sudo cp -rf etc/* /etc/
 cp -rf wallpapers/* ~/Pictures/Wallpapers/
 cp -rf live/* ~/Pictures/Live
 echo "::: Done."
@@ -154,6 +155,7 @@ if [ "$user_input" = "y" ] || [ "$user_input" = "Y" ]; then
         echo "(!) URL: https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst"
         chaotic_error=1
     fi
+    sudo pacman -Sy
     if ! sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'; then
         echo "(!) Error: Failed to download or install chaotic-mirrorlist.pkg.tar.zst."
         echo "(!) Please check your internet connection or try again later."
@@ -194,13 +196,13 @@ paru -S --needed --noconfirm db ninja gcc cmake meson clang parallel
 paru -S --needed --noconfirm libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite \
 libxrender pixman cairo pango libxkbcommon xcb-util-wm fmt spdlog gtkmm3 libdbusmenu-gtk3 upower libmpdclient \
 sndio gtk-layer-shell scdoc qt5-wayland qt6-wayland qt5ct qt6ct kconfig kconfig polkit polkit-kde-agent polkit-gnome \
-libnotify xdg-utils
+libnotify xdg-utils shared-mime-info
 # Theming
 paru -S --needed --noconfirm papirus-icon-theme tela-circle-icon-theme-all bibata-cursor-theme kvantum kvantum-qt5
 # Apps and utils
 paru -S --needed --noconfirm mako network-manager-applet bluez bluez-utils blueman brightnessctl udiskie xdg-desktop-portal-hyprland \
 xdg-desktop-portal-gtk nautilus dolphin gnome-text-editor waybar swww nwg-shell tofi wlogout wayshot archlinux-xdg-menu \
-mpvpaper fish kitty lsd starship krabby less hypridle hyprlock jq xdg-desktop-portal-kde nwg-displays alsa-utils
+mpvpaper fish kitty lsd starship krabby less hypridle hyprlock jq xdg-desktop-portal-kde nwg-displays alsa-utils fastfetch
 # View apps
 paru -S --needed --noconfirm mpv imv code code-features code-marketplace firefox telegram-desktop
 # System utils
@@ -264,10 +266,6 @@ echo "::: Applying cursor theme for GNOME..."
 gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Original-Ice'
 echo "::: Applying cursor theme for Hyprland..."
 hyprctl setcursor Bibata-Original-Ice 24
-echo "::: Applying cursor theme for SDDM..."
-sudo sed -i '/$$Theme$$/a CursorSize=24\nCursorTheme=Bibata-Original-Ice' /etc/sddm.conf
-echo "::: Applying SDDM theme..."
-sudo sed -i '/$$Theme$$/a Current=sddm-astronaut-theme' /etc/sddm.conf
 echo "::: Applying wallpapers slideshow service"
 systemctl --user daemon-reload
 
