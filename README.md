@@ -7,13 +7,11 @@
 ![screenshot](/src/1.png)
 ![screenshot](/src/2.png)
 ![screenshot](/src/3.png)
-![screenshot](/src/4.png)
-![screenshot](/src/5.png)
-![screenshot](/src/6.png)
 
 # Installation on a newly installed Arch with Hyprland
 
-This script installs hyprdots on a freshly installed Arch with Hyprland. Arch installation instructions are available in the `install.md` file.
+This script installs hyprdots on a freshly installed Arch with Hyprland. Arch installation instructions are available in the [install.md](https://github.com/mvrshmvllxw/hyprnez/blob/main/Install.md) file.
+
 
 ### Preparation (Wi-Fi)
 
@@ -49,6 +47,8 @@ If you got any errors try:
 ```
 
 ### Installer 
+
+Please note: If the top hyprland banner is constantly blinking, you first need to reboot the PC with the `reboot` command and only then run the installer (otherwise the hyprland config will not be updated due to a bug).
 
 Now you can download repo and run installation:
 
@@ -108,11 +108,11 @@ Type `about:support`. Copy address from Open profile direcory button.
 
 Create file directory 'chrome':
 
-`mkdir -p /home/mvrshmvllxw/.mozilla/firefox/gckgzl7s.default-release/chrome`
+mkdir -p /home/mvrshmvllxw/.mozilla/firefox/`gckgzl7s.default-release`/chrome`
 
 And file:
 
-`sudo nano  /home/mvrshmvllxw/.mozilla/firefox/gckgzl7s.default-release/chrome/userChrome.css`
+sudo nano  /home/mvrshmvllxw/.mozilla/firefox/`gckgzl7s.default-release`/chrome/userChrome.css
 
 Add to file:
 

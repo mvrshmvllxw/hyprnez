@@ -203,7 +203,7 @@ paru -S --needed --noconfirm papirus-icon-theme tela-circle-icon-theme-all bibat
 # Apps and utils
 paru -S --needed --noconfirm mako network-manager-applet bluez bluez-utils blueman brightnessctl udiskie xdg-desktop-portal-hyprland \
 xdg-desktop-portal-gtk nautilus dolphin gnome-text-editor waybar swww nwg-shell tofi wlogout wayshot archlinux-xdg-menu \
-mpvpaper fish kitty lsd starship krabby less hypridle hyprlock jq xdg-desktop-portal-kde nwg-displays alsa-utils fastfetch
+mpvpaper fish kitty lsd starship krabby less hypridle hyprlock jq xdg-desktop-portal-kde nwg-displays alsa-utils fastfetch htop btop
 # View apps
 paru -S --needed --noconfirm mpv imv code code-features code-marketplace firefox telegram-desktop
 # System utils

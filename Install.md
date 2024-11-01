@@ -23,22 +23,19 @@ exit
 
 # Run automatic installer
 
-The minimal commands:
-
-> pacman -Sy python
+The minimal command:
 
 > archinstall
 
-But if you get any errors try update keys and mirrors:
+But to prevent possible errors I recommend doing it this way:
 
 ```
 > gpg --refresh-keys
 > pacman-key --init
 > pacman-key --populate archlinux
 > pacman -Sy archlinux-keyring
-> pacman -S reflector rsync
+> pacman -S reflector rsync python
 > reflector --verbose --latest 15 --sort rate --save /etc/pacman.d/mirrorlist
-> pacman -S python
 > archinstall
 ```
 
