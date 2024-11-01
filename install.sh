@@ -61,8 +61,8 @@ fi
 ###################
 
 echo "::: Copying configuration files..."
-sudo cp -rf .config/* ~/.config/
-sudo cp -rf .themes/* ~/.themes/
+cp -rf .config/* ~/.config/
+cp -rf .themes/* ~/.themes/
 sudo cp -rf usr/* /usr/
 sudo cp -rf etc/* /etc/
 cp -rf wallpapers/* ~/Pictures/Wallpapers/
@@ -185,6 +185,7 @@ if ! command -v paru &> /dev/null; then
     echo -e "\e[35m(!) Paru is not installed. Please install paru first.\e[0m"
     exit 1
 fi
+sudo pacman -Syu
 # Main components
 paru -S --needed --noconfirm hyprland wayland-protocols xorg-xwayland wlroots mesa
 # Sound and multimedia
