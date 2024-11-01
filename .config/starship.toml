@@ -41,7 +41,7 @@ style = "white"
 disabled = false
 format = "took [$duration]($style)"
 min_time = 1
-
+show_milliseconds = true
 
 ## SECOND LINE/ROW: Prompt
 # Somethere at the beginning
