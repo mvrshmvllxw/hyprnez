@@ -1,3 +1,6 @@
+# Config
+command_timeout = 5000
+
 ## FIRST LINE/ROW: Info & Status
 # First param ─┌
 [username]

@@ -215,6 +215,7 @@ echo "::: Packages installation complete."
 paru -S --needed --noconfirm python python-pip tk tcl python-pyqt6
 
 
+
 ###################
 
 echo "::: Installing fonts..."
@@ -226,15 +227,16 @@ echo "::: Installation completed."
 ###################
 
 echo "::: Applying default apps..."
-# Video
-xdg-mime default mpv.desktop video/mp4
-xdg-mime default mpv.desktop video/x-matroska
-xdg-mime default mpv.desktop video/webm
-# Pics
-xdg-mime default imv.desktop image/jpeg
-xdg-mime default imv.desktop image/png
-xdg-mime default imv.desktop image/gif
-echo "::: Done."
+XDG_MENU_PREFIX=arch- kbuildsycoca6
+# # Video
+# xdg-mime default mpv.desktop video/mp4
+# xdg-mime default mpv.desktop video/x-matroska
+# xdg-mime default mpv.desktop video/webm
+# # Pics
+# xdg-mime default imv.desktop image/jpeg
+# xdg-mime default imv.desktop image/png
+# xdg-mime default imv.desktop image/gif
+# echo "::: Done."
 
 ###################
 
