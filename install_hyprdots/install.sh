@@ -213,6 +213,19 @@ paru -S --needed --noconfirm drawing imagemagick qt5-imageformats ffmpegthumbs
 echo "::: Packages installation complete."
 # Python
 paru -S --needed --noconfirm python python-pip tk tcl python-pyqt6
+# Nvidia fix
+paru -S --needed --noconfirm nvidia
+# VPN
+paru -S --needed --noconfirm nekoray
+
+# fixes steam
+# sudo pacman -S lib32-libx11 lib32-libxcomposite lib32-libxrandr lib32-libxinerama lib32-libxcursor
+# sudo pacman -S lib32-mesa lib32-vulkan-icd-loader
+# sudo pacman -S pipewire pipewire-pulse wireplumber lib32-pipewire
+# sudo pacman -S xorg-xwayland
+# sudo pacman -S lib32-glibc lib32-gtk2 lib32-gtk3
+# sudo pacman -S ttf-dejavu ttf-liberation
+# sudo pacman -S lib32-alsa-plugins lib32-gnutls lib32-libpulse lib32-openal
 
 
 

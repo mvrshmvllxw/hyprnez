@@ -1,4 +1,4 @@
-![Termianl Screenshot](/img/terminal.png?raw=true "WSL")
+![Termianl Screenshot](/install_wsl/img/terminal.png?raw=true "WSL")
 
 ## Install scoop
 
