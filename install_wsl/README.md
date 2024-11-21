@@ -138,12 +138,12 @@ pacman: check or uncomment:
     Color
     VerbosePkgLists
     ParallelDownloads = 5
+    [multilib]
+    Include = /etc/pacman.d/mirrorlist
 
 pacman: add:
 
     ILoveCandy
-
-also delete # from multilib section
 
 mirrors
 
