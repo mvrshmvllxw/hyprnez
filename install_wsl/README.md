@@ -240,34 +240,38 @@ alt + 1,2,3.. > F1, F2, F3..
 ```
 
 
-- for transparent taskbar
+- for transparent taskbar install TranslucentTB from 
 
 ```
-install TranslucentTB from https://apps.microsoft.com/detail/9pf4kz2vn4w9?hl=en-US&gl=US
+https://apps.microsoft.com/detail/9pf4kz2vn4w9?hl=en-US&gl=US
 ```
 
-- for transparent start menu
+- for transparent start menu install Windows 11 Start Menu Styler 
 
 ```
-install Windows 11 Start Menu Styler https://windhawk.net/mods/windows-11-start-menu-styler
+https://windhawk.net/mods/windows-11-start-menu-styler
 ```
 
-- for transparent notify center
+- for transparent notify center install Windows 11 Notification Center Styler 
 
 ```
-install Windows 11 Notification Center Styler https://windhawk.net/mods/windows-11-notification-center-styler
+https://windhawk.net/mods/windows-11-notification-center-styler
 ```
 
-- for clock on desktop
+- for clock on desktop install Monterey Rainmeter Win 
 
 ```
-install Monterey Rainmeter Win https://github.com/creewick/MontereyRainmeter
-
-install Rainmeter clock https://github.com/KazukiGames82/ttyclock-for-rainmeter
+https://github.com/creewick/MontereyRainmeter
 ```
 
-- for cpu and gpu temperatue in a tray
+and Rainmeter clock
 
 ```
-HWiNFO https://www.hwinfo.com/
+https://github.com/KazukiGames82/ttyclock-for-rainmeter
+```
+
+- for cpu and gpu temperatue in a tray install and setup HWiNFO 
+
+```
+https://www.hwinfo.com/
 ```
