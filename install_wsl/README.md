@@ -223,7 +223,7 @@ starship
 
 ## If you want your Windows to look like the screenshot
 
-- insatll custom cursor (is in this repository, Neuro-sama or concept)
+- install custom cursor (is in this repository, Neuro-sama or concept)
 
 - place wm.exe in shell:startup, then you can manage windows by hotkeys:
 
