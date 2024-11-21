@@ -7,11 +7,11 @@
 
 ![screenshot](/src/1.png)
 
-If you want install hyprdots open `/install_hyprdots`
+If you want to install hyprdots open `/install_hyprdots`
 
 # Arch
 
-if you need instructions on how to install a clean arch then open `/install_arch`
+if you need instructions on how to install a clean Aarch then open `/install_arch`
 
 # WSL
 

@@ -1,4 +1,4 @@
-![Termianl Screenshot](/install_wsl/img/terminal.png?raw=true "WSL")
+![screenshot](/src/terminal.png)
 
 ## Install scoop
 
@@ -215,7 +215,7 @@ starship
 
     sudo pacman -S starship
 
-    curl -o ~/.config/starship.toml https://raw.githubusercontent.com/mvrshmvllxw/arch-wsl/main/starship.toml
+    curl -o ~/.config/starship.toml https://raw.githubusercontent.com/mvrshmvllxw/hyprnez/main/install_wsl/starship.toml
 
     or copy (cp ~/Downloads/starship.toml ~/.config/)
 
@@ -223,7 +223,7 @@ starship
 
 ## If you want your Windows to look like the screenshot
 
-- insatll custom cursor (is in this repository)
+- insatll custom cursor (is in this repository, Neuro-sama or concept)
 
 - place wm.exe in shell:startup, then you can manage windows by hotkeys:
 
@@ -239,14 +239,35 @@ win + q | e > emulate hotkeys to change virtual desktop
 alt + 1,2,3.. > F1, F2, F3..
 ```
 
-- install TranslucentTB from https://apps.microsoft.com/detail/9pf4kz2vn4w9?hl=en-US&gl=US
 
-- install Windows 11 Start Menu Styler https://windhawk.net/mods/windows-11-start-menu-styler
+- for transparent taskbar
 
-- install Windows 11 Notification Center Styler https://windhawk.net/mods/windows-11-notification-center-styler
+```
+install TranslucentTB from https://apps.microsoft.com/detail/9pf4kz2vn4w9?hl=en-US&gl=US
+```
 
-- install Monterey Rainmeter Win https://github.com/creewick/MontereyRainmeter
+- for transparent start menu
 
-- install Rainmeter clock https://github.com/KazukiGames82/ttyclock-for-rainmeter
+```
+install Windows 11 Start Menu Styler https://windhawk.net/mods/windows-11-start-menu-styler
+```
 
-- HWiNFO for tray temp
+- for transparent notify center
+
+```
+install Windows 11 Notification Center Styler https://windhawk.net/mods/windows-11-notification-center-styler
+```
+
+- for clock on desktop
+
+```
+install Monterey Rainmeter Win https://github.com/creewick/MontereyRainmeter
+
+install Rainmeter clock https://github.com/KazukiGames82/ttyclock-for-rainmeter
+```
+
+- for cpu and gpu temperatue in a tray
+
+```
+HWiNFO https://www.hwinfo.com/
+```
