@@ -207,36 +207,38 @@ if ! command -v paru &> /dev/null; then
 fi
 sudo pacman -Syu
 # Main components
-paru -S --needed --noconfirm hyprland wayland-protocols xorg-xwayland wlroots mesa
-# Sound and multimedia
-paru -S --needed --noconfirm pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-audio \
-pipewire-jack gst-plugin-pipewire pavucontrol pamixer
-# Dev
-paru -S --needed --noconfirm db ninja gcc cmake meson clang parallel
-# Libraries
-paru -S --needed --noconfirm libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite \
-libxrender pixman cairo pango libxkbcommon xcb-util-wm fmt spdlog gtkmm3 libdbusmenu-gtk3 upower libmpdclient \
-sndio gtk-layer-shell scdoc qt5-wayland qt6-wayland qt5ct qt6ct kconfig kconfig polkit polkit-kde-agent polkit-gnome \
-libnotify xdg-utils shared-mime-info
-# Theming
-paru -S --needed --noconfirm papirus-icon-theme tela-circle-icon-theme-all bibata-cursor-theme kvantum kvantum-qt5
-# Apps and utils
-paru -S --needed --noconfirm mako network-manager-applet bluez bluez-utils blueman brightnessctl udiskie xdg-desktop-portal-hyprland \
-xdg-desktop-portal-gtk nautilus dolphin gnome-text-editor waybar swww nwg-shell tofi wlogout wayshot archlinux-xdg-menu \
-mpvpaper fish kitty lsd starship krabby less hypridle hyprlock jq xdg-desktop-portal-kde nwg-displays alsa-utils fastfetch htop btop
-# View apps
-paru -S --needed --noconfirm mpv imv code code-features code-marketplace firefox telegram-desktop
-# System utils
-paru -S --needed --noconfirm kde-cli-tools kservice5 pacman-contrib python-pyamdgpuinfo xorg-xinput seatd 
-# Images
-paru -S --needed --noconfirm drawing imagemagick qt5-imageformats ffmpegthumbs
-echo "::: Packages installation complete."
-# Python
-paru -S --needed --noconfirm python python-pip tk tcl python-pyqt6
-# Nvidia fix
-paru -S --needed --noconfirm nvidia
-# VPN
-paru -S --needed --noconfirm nekoray
+
+
+
+# # Sound and multimedia
+# paru -S --needed --noconfirm pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-audio \
+# pipewire-jack gst-plugin-pipewire pavucontrol pamixer
+# # Dev
+# paru -S --needed --noconfirm db ninja gcc cmake meson clang parallel
+# # Libraries
+# paru -S --needed --noconfirm libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11  \
+#   libxkbcommon xcb-util-wm fmt spdlog gtkmm3 libdbusmenu-gtk3 upower libmpdclient \
+# sndio gtk-layer-shell scdoc   qt5ct qt6ct kconfig kconfig polkit polkit-kde-agent polkit-gnome \
+# libnotify xdg-utils shared-mime-info
+# # Theming
+# paru -S --needed --noconfirm papirus-icon-theme tela-circle-icon-theme-all bibata-cursor-theme kvantum kvantum-qt5
+# # Apps and utils
+# paru -S --needed --noconfirm mako network-manager-applet bluez bluez-utils blueman brightnessctl udiskie xdg-desktop-portal-hyprland \
+# xdg-desktop-portal-gtk nautilus dolphin gnome-text-editor waybar swww nwg-shell tofi wlogout wayshot archlinux-xdg-menu \
+# mpvpaper fish kitty lsd starship krabby less hypridle hyprlock jq xdg-desktop-portal-kde nwg-displays alsa-utils fastfetch htop btop
+# # View apps
+# paru -S --needed --noconfirm  code code-features code-marketplace firefox telegram-desktop
+# # System utils
+# paru -S --needed --noconfirm kde-cli-tools kservice5 pacman-contrib python-pyamdgpuinfo xorg-xinput seatd 
+# # Images
+# paru -S --needed --noconfirm drawing  
+# echo "::: Packages installation complete."
+# # Python
+# paru -S --needed --noconfirm python python-pip tk tcl python-pyqt6
+# # Nvidia fix
+# paru -S --needed --noconfirm nvidia
+# # VPN
+# paru -S --needed --noconfirm nekoray
 
 # fixes steam
 # sudo pacman -S lib32-libx11 lib32-libxcomposite lib32-libxrandr lib32-libxinerama lib32-libxcursor
@@ -246,6 +248,44 @@ paru -S --needed --noconfirm nekoray
 # sudo pacman -S lib32-glibc lib32-gtk2 lib32-gtk3
 # sudo pacman -S ttf-dejavu ttf-liberation
 # sudo pacman -S lib32-alsa-plugins lib32-gnutls lib32-libpulse lib32-openal
+
+
+
+# Python
+paru -S --needed --noconfirm python python-pip tk tcl python-pyqt6
+# Wayland and X11
+paru -S --needed --noconfirm hyprland wayland-protocols xorg-xwayland wlroots
+# Graphics and Video Libraries
+paru -S --needed --noconfirm mesa pixman cairo pango libxcomposite libxrender qt5-wayland qt6-wayland qt5-imageformats ffmpegthumbs imagemagick
+# Sound and Multimedia Libraries
+paru -S --needed --noconfirm pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-audio pipewire-jack gst-plugin-pipewire alsa-utils
+# Development Tools
+paru -S --needed --noconfirm db ninja gcc cmake meson clang parallel
+# General Libraries
+paru -S --needed --noconfirm libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxkbcommon xcb-util-wm fmt spdlog gtkmm3 libdbusmenu-gtk3 \
+upower libmpdclient sndio gtk-layer-shell scdoc qt5ct qt6ct kconfig polkit polkit-kde-agent polkit-gnome libnotify xdg-utils shared-mime-info
+# Themes and Fonts
+paru -S --needed --noconfirm papirus-icon-theme tela-circle-icon-theme-all bibata-cursor-theme kvantum kvantum-qt5 otf-font-awesome ttf-firacode-nerd \
+ttf-cascadia-code ttf-cascadia-code-nerd ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans \
+ttf-iosevka-nerd ttf-iosevkaterm-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols-mono noto-fonts-emoji awesome-terminal-fonts noto-fonts-cjk \
+noto-fonts ttf-dejavu ttf-liberation
+# Utilities and Applications
+paru -S --needed --noconfirm mako network-manager-applet bluez bluez-utils blueman brightnessctl udiskie xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+nautilus dolphin gnome-text-editor waybar nwg-shell tofi wlogout wayshot archlinux-xdg-menu fish kitty lsd starship krabby less hypridle hyprlock jq \
+xdg-desktop-portal-kde nwg-displays fastfetch htop btop
+# Viewer and Editor Applications
+paru -S --needed --noconfirm code code-features code-marketplace firefox telegram-desktop imv mpv
+# System Utilities
+paru -S --needed --noconfirm kde-cli-tools kservice5 pacman-contrib python-pyamdgpuinfo xorg-xinput seatd
+# Nvidia
+paru -S --needed --noconfirm nvidia
+# VPN
+paru -S --needed --noconfirm nekoray
+# Fixes for Steam
+sudo pacman -S --needed --noconfirm lib32-libx11 lib32-libxcomposite lib32-libxrandr lib32-libxinerama lib32-libxcursor lib32-mesa lib32-vulkan-icd-loader \
+lib32-pipewire lib32-glibc lib32-gtk2 lib32-gtk3 lib32-gnutls lib32-libpulse lib32-openal
+
+
 
 
 
