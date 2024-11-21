@@ -10,7 +10,7 @@
 
 # Installation on a newly installed Arch with Hyprland
 
-This script installs hyprdots on a freshly installed Arch with Hyprland. Arch installation instructions are available in the [install.md](https://github.com/mvrshmvllxw/hyprnez/blob/main/Install.md) file.
+This script installs hyprdots on a freshly installed Arch with Hyprland. Arch installation instructions are available in the [install_arch](https://github.com/mvrshmvllxw/hyprnez/blob/main/install_arch/) folder.
 
 
 ### Preparation (Wi-Fi)
@@ -54,7 +54,7 @@ Now you can download repo and run installation:
 
 ```
 > git clone https://github.com/mvrshmvllxw/hyprnez
-> cd hyprnez
+> cd hyprnez/install_hyprdots
 > ./install.sh
 ```
 
@@ -64,41 +64,31 @@ After successful installation reboot your PC:
 
 > reboot
 
-After login press `Win+Z` to open Kitty.
-
 # Setup
 
-To show default keybinds:
+After login press `Win+Z` to open Kitty and type:
 
 > hyprnez keys
 
-To set default wallpaper (stored in ~/Pictures/Wallpapers):
-
-> hyprnez wallpaper
-
-To change monitor settings:
-
-> hyprnez utils
-
-To get all available commands:
-
-> hyprnez
-
-To edit configs:
-
-> hyprnez config
+This command will show all available commands to set up these hyprdots
 
 # Additional
 
 ### Telegram theme
-theme: https://t.me/addtheme/BChppF8BUJCY9EW9
+
+```
+https://t.me/addtheme/BChppF8BUJCY9EW9
+```
 
 ### Firefox theme
-https://addons.mozilla.org/en-US/firefox/addon/nicothin-space/
+
+```
+https://addons.mozilla.org/en-US/firefox/addon/nezuko/
+```
 
 ### Firefox delete window close button
 
-Type `about:config` in URL Bar and set to enable css themes.
+Type `about:config` in URL bar.
 
 Set `toolkit.legacyUserProfileCustomizations.stylesheets` to true.
 
@@ -120,7 +110,7 @@ Add to file:
 
 # NVidia drivers
 
-If you are installing Hyprland not on a clean Arch with pre-installed Hyprland and you have Nvidia, then you should read https://wiki.hyprland.org/Nvidia/
+If you are installing Hyprland not on a clean Arch with pre-installed Hyprland and video drivers, then you should read https://wiki.hyprland.org/Nvidia/
 
 
 
