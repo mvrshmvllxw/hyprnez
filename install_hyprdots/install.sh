@@ -195,21 +195,16 @@ else
 fi
 
 
-
-
-
-###################
-
-echo "::: Installing dependencies.with paru..."
+#########################################################
+# Installing dependencies
+#########################################################
+echo "::: Installing dependencies with paru..."
 if ! command -v paru &> /dev/null; then
     echo -e "\e[35m(!) Paru is not installed. Please install paru first.\e[0m"
     exit 1
 fi
 sudo pacman -Syu
 # Main components
-
-
-
 # # Sound and multimedia
 # paru -S --needed --noconfirm pipewire wireplumber pipewire-alsa pipewire-pulse pipewire-audio \
 # pipewire-jack gst-plugin-pipewire pavucontrol pamixer
@@ -239,7 +234,6 @@ sudo pacman -Syu
 # paru -S --needed --noconfirm nvidia
 # # VPN
 # paru -S --needed --noconfirm nekoray
-
 # fixes steam
 # sudo pacman -S lib32-libx11 lib32-libxcomposite lib32-libxrandr lib32-libxinerama lib32-libxcursor
 # sudo pacman -S lib32-mesa lib32-vulkan-icd-loader
@@ -250,11 +244,10 @@ sudo pacman -Syu
 # sudo pacman -S lib32-alsa-plugins lib32-gnutls lib32-libpulse lib32-openal
 
 
-
 # Python
 paru -S --needed --noconfirm python python-pip tk tcl python-pyqt6
 # Wayland and X11
-paru -S --needed --noconfirm hyprland wayland-protocols xorg-xwayland wlroots
+paru -S --needed --noconfirm hyprland-git wayland-protocols xorg-xwayland wlroots
 # Graphics and Video Libraries
 paru -S --needed --noconfirm mesa pixman cairo pango libxcomposite libxrender qt5-wayland qt6-wayland qt5-imageformats ffmpegthumbs imagemagick
 # Sound and Multimedia Libraries
@@ -286,19 +279,9 @@ sudo pacman -S --needed --noconfirm lib32-libx11 lib32-libxcomposite lib32-libxr
 lib32-pipewire lib32-glibc lib32-gtk2 lib32-gtk3 lib32-gnutls lib32-libpulse lib32-openal
 
 
-
-
-
-###################
-
-echo "::: Installing fonts..."
-sudo pacman -S --noconfirm --needed otf-font-awesome ttf-firacode-nerd ttf-cascadia-code ttf-cascadia-code-nerd \
-ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ttf-cascadia-mono-nerd ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-iosevka-nerd \
-ttf-iosevkaterm-nerd ttf-jetbrains-mono ttf-nerd-fonts-symbols-mono noto-fonts-emoji awesome-terminal-fonts noto-fonts-cjk noto-fonts
-echo "::: Installation completed."
-
-###################
-
+#########################################################
+# Default apps
+#########################################################
 echo "::: Applying default apps..."
 XDG_MENU_PREFIX=arch- kbuildsycoca6
 # # Video
@@ -311,19 +294,22 @@ XDG_MENU_PREFIX=arch- kbuildsycoca6
 # xdg-mime default imv.desktop image/gif
 # echo "::: Done."
 
-###################
 
+#########################################################
+# Set Fish default shell
+#########################################################
 echo "::: Setting fish as the default shell..."
 chsh -s $(which fish)
-
-#script to set theme from github
+# script to set theme from github
 # THEMENAME="Hardcore"
 # THEME_URL="https://raw.githubusercontent.com/dexpota/kitty-themes/master/themes/$THEMENAME.conf"
 # wget "$THEME_URL" -P ~/.config/kitty/kitty-themes/
 # ln -sf ~/.config/kitty/kitty-themes/$THEMENAME.conf ~/.config/kitty/theme.conf
 
-###################
 
+#########################################################
+# Applying appearance
+#########################################################
 echo "::: Applying appearance..." 
 echo "::: Applying icons for KDE apps..."
 kwriteconfig6 --file ~/.config/kdeglobals --group Icons --key Theme 'Tela-circle-blue'
@@ -345,8 +331,10 @@ hyprctl setcursor Bibata-Original-Ice 24
 echo "::: Applying wallpapers slideshow service"
 systemctl --user daemon-reload
 
-###################
 
+#########################################################
+# Flatpak and Snapcarft
+#########################################################
 echo -e "\e[35m::: Do you want to install Flatpak and Snapcraft?\e[0m (y/n): \c"
 read user_input_store
 if [[ "$user_input_store" == "y" || "$user_input_store" == "Y" ]]; then
@@ -372,7 +360,9 @@ else
     echo "::: Installation of Flatpak and Snapcraft has been canceled."
 fi
 
-###################
+#########################################################
+# Bluetooth
+#########################################################
 
 echo -e "\e[35m::: Do you want to enable Bluetooth service?\e[0m (y/n): \c"
 read bluetooth
@@ -384,12 +374,13 @@ else
     echo "::: Cancelled by user."
 fi
 
-###################
+#########################################################
+# Done
+#########################################################
 
 echo -e "\e[35m::: Well done.\e[0m"
 echo -e "\e[35m::: Now please type 'reboot'.\e[0m"
 echo -e "\e[35m::: After login use 'win+z' top open Terminal.\e[0m"
 echo -e "\e[35m::: Type 'hyprnez keys' to see default keybinds.\e[0m"
 echo -e "\e[35m::: Type 'hyprnez' to see all commands.\e[0m"
-echo -e "\e[35m::: Type 'hyprnez config monitor' to edit monitor config.\e[0m"
-echo -e "\e[35m::: Type 'hyprnez nezuko' to set default wallpaper (only after reboot)\e[0m"
+echo -e "\e[35m::: Type 'hyprnez config' to edit main config.\e[0m"
