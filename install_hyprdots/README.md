@@ -12,7 +12,7 @@
 
 This script installs hyprdots on a freshly installed Arch with Hyprland. Arch installation instructions are available in the [install_arch](https://github.com/mvrshmvllxw/hyprnez/blob/main/install_arch/) folder.
 
-# DE
+### DE
 
 - wm: hyprland
 - bar: waybar
@@ -21,12 +21,12 @@ This script installs hyprdots on a freshly installed Arch with Hyprland. Arch in
 - lockscreen: hyprlock + hypridle
 - wallpapers: swww
 - logout menu: wlogout
-- terminal: kitty (fish shell, starship, lsd)
+- terminal: kitty (hardcore theme,fish shell, lsd, starship with theme from Garuda Linux)
 - kde and gnome theme: rose pin
 - login screen: sddm (austronaut theme)
 - cursor: bibata
 - icons: tela-circle
-- additional apps: vscode (editor), telegram-desktop, firefox, imv (image viewer), mpv (vide viewer), wayshot (screenshots), nekoray (v2ray vpn client), obs-studio (screen recorder), dolphin (files), krabby (pokemons), fastfetch (system info)
+- additional apps: vscode (editor, omni theme/material-icon-theme), telegram-desktop, firefox, imv (image viewer), mpv (vide viewer), wayshot (screenshots), nekoray (v2ray vpn client), obs-studio (screen recorder), dolphin (files), krabby (pokemons), fastfetch (system info), btop (catppuccin macchiato theme) and htop (processes viewers)
 
 ### Preparation (Wi-Fi)
 
@@ -63,7 +63,7 @@ If you got any errors try:
 
 ### Installer 
 
-Please note: If the top hyprland banner is constantly blinking, you first need to reboot the PC with the `reboot` command and only then run the installer (otherwise the hyprland config will not be updated due to a bug).
+Please note: if the top hyprland banner is constantly blinking, you first need to reboot the PC with the `reboot` command and only then run the installer (otherwise the hyprland config will not be updated due to a bug).
 
 Now you can download repo and run installation:
 
@@ -89,10 +89,24 @@ After login press `Win+Z` to open Kitty and type:
 
 This command will show all available commands to set up these hyprdots
 
+First of all, set wallpaper:
+
+> hyprnez wallpaper
+
+and type '1', then 'enter'.
+
+# Keys
+
+![screenshot](/src/m1.png)
+
+# Commands
+
+![screenshot](/src/m2.png)
+
 # Description of the installer
 
 The installer will perform the following steps:
-1) Ask if you want to update the repository.
+1) Ask if you want to update the repository (installer).
 2) Create directories for configurations.
 3) Remove any auto-generated warnings, if present.
 4) Enable hotkeys for copying in Kitty.

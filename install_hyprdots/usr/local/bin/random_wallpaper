@@ -7,4 +7,4 @@ if [ ${#images[@]} -eq 0 ]; then
     exit 1
 fi
 selected_image="${images[RANDOM % ${#images[@]}]}"
-swww img "$selected_image"
+swww img "$selected_image" -t wave

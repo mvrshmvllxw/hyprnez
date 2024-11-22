@@ -74,7 +74,7 @@ window#waybar {
     margin-left: 5px;
     margin-right: 5px;
     padding-right: 14px;
-    padding-left: 10px;
+    padding-left: 9px;
     border-radius: 18px;
     transition: background 0.4s cubic-bezier(.55,-0.68,.48,1.682), color 0.4s cubic-bezier(.55,-0.68,.48,1.682);
 }
@@ -84,21 +84,17 @@ window#waybar {
     margin-right: 5px;
     margin-left: 5px;
     padding-left: 10px;
-    padding-right: 14px;
+    padding-right: 13px;
     border-radius: 18px;
     transition: background 0.4s cubic-bezier(.55,-0.68,.48,1.682), color 0.4s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #custom-launcher:hover {
-    margin-left: 5px;
-    padding-left: 10px;
     background: #cdd6f4;
     color: #11111b; 
 }
 
 #custom-wlogout:hover {
-    margin-left: 5px;
-    padding-left: 10px;
     background: #cdd6f4;
     color: #11111b; 
 }

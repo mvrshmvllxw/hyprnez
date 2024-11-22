@@ -83,36 +83,49 @@ elif [[ "$1" == "icons" ]]; then
     gsettings set org.gnome.desktop.interface icon-theme "Tela-circle-$color"
 
 
-elif [[ "$1" == "config" && -z "$2" ]]; then
-    config_files=(
-        "keybinds.conf:Keybindings"
-        "monitor.conf:Monitor"
-        "windows.conf:Windows"
-        "input.conf:Input"
-        "autostart.conf:Autostart"
-        "env.conf:Environment"
-        "animation.conf:Animations"
-        "look.conf:Appearance"
-        "hyprland.conf:Hyprland"
-        "hypridle.conf:Idle"
-        "hyprlock.conf:Lock"
-    )
-    echo "Select file number to open:"
-    for i in "${!config_files[@]}"; do
-        IFS=':' read -r file_name display_name <<< "${config_files[$i]}"
-        echo "$((i + 1)). $display_name"
-    done
-    read -p "Enter file number: " file_number
-    if [[ "$file_number" =~ ^[0-9]+$ ]] && ((file_number > 0 && file_number <= ${#config_files[@]})); then
-        IFS=':' read -r selected_file _ <<< "${config_files[$((file_number - 1))]}"
-        if command -v code >/dev/null 2>&1; then
-            code "$HOME/.config/hypr/$selected_file"
-        else
-            nano "$HOME/.config/hypr/$selected_file"
-        fi
-    else
-        echo "Invalid input. Please enter a valid number."
-    fi
+# elif [[ "$1" == "config" && -z "$2" ]]; then
+#     config_files=(
+#         "keybinds.conf:Keybindings"
+#         "monitor.conf:Monitor"
+#         "windows.conf:Windows"
+#         "input.conf:Input"
+#         "autostart.conf:Autostart"
+#         "env.conf:Environment"
+#         "animation.conf:Animations"
+#         "look.conf:Appearance"
+#         "hyprland.conf:Hyprland"
+#         "hypridle.conf:Idle"
+#         "hyprlock.conf:Lock"
+#     )
+#     echo "Select file number to open:"
+#     for i in "${!config_files[@]}"; do
+#         IFS=':' read -r file_name display_name <<< "${config_files[$i]}"
+#         echo "$((i + 1)). $display_name"
+#     done
+#     read -p "Enter file number: " file_number
+#     if [[ "$file_number" =~ ^[0-9]+$ ]] && ((file_number > 0 && file_number <= ${#config_files[@]})); then
+#         IFS=':' read -r selected_file _ <<< "${config_files[$((file_number - 1))]}"
+#         if command -v code >/dev/null 2>&1; then
+#             code "$HOME/.config/hypr/$selected_file"
+#         else
+#             nano "$HOME/.config/hypr/$selected_file"
+#         fi
+#     else
+#         echo "Invalid input. Please enter a valid number."
+#     fi
+
+elif [[ "$1" == "config" ]]; then
+    code "$HOME/.config/hypr/hyprland.conf"
+
+elif [[ "$1" == "configs" ]]; then
+    code "$HOME/.config/hypr/hyprlock.conf"
+    code "$HOME/.config/hypr/hypridle.conf"
+    code "$HOME/.config/waybar/style.css"
+    code "$HOME/.config/waybar/config.jsonc"
+    code "$HOME/.config/mako/config"
+    code "$HOME/.config/wlogout/style.css"
+    code "$HOME/.config/wlogout/layout"
+    code "$HOME/.config/tofi/configA"
 
 
 elif [[ "$1" == "utils" ]]; then
@@ -181,7 +194,7 @@ elif [[ "$1" == "wallpaper" ]]; then
     case $option_number in
         1)
             if command -v swww >/dev/null 2>&1; then
-                swww img ~/Pictures/Wallpapers/nezuko.jpg
+                swww img ~/Pictures/Wallpapers/nezuko.jpg -t wipe
             else
                 echo "swww not found. Please install it first."
             fi
@@ -222,7 +235,7 @@ elif [[ "$1" == "wallpaper" ]]; then
                 exit 1
             fi
             selected_image="${images[$((choice-1))]}"
-            swww img "$WALLPAPER_DIR/$selected_image"
+            swww img "$WALLPAPER_DIR/$selected_image" -t center
             echo "Wallpaper set to: $WALLPAPER_DIR/$selected_image"
             ;;
         5)
@@ -246,9 +259,10 @@ elif [[ "$1" == "wallpaper" ]]; then
 else
     echo -e "\033[1;34mAvailable commands:\033[0m"
     echo -e "\t\033[1;32mhyprnez keys\033[0m      \t# show default keybinds"
-    echo -e "\t\033[1;32mhyprnez config\033[0m    \t# edit configs"
+    echo -e "\t\033[1;32mhyprnez config\033[0m    \t# open hyprland config in vs code"
+    echo -e "\t\033[1;32mhyprnez configs\033[0m   \t# open all other configs (lockscreen, waybar, mako, etc.)"
     echo -e "\t\033[1;32mhyprnez wallpaper\033[0m \t# manage wallpaper"
+    echo -e "\t\033[1;32mhyprnez icons\033[0m     \t# change icons color"
     echo -e "\t\033[1;32mhyprnez utils\033[0m     \t# various utilities"
-    echo -e "\t\033[1;32mhyprnez icons\033[0m     \t# change icons"
 fi
 
